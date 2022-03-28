@@ -11,6 +11,8 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import './App.css'
+import { Container } from '@mui/material';
 
 const components = [
  { name: <Home />, path:'/home'},
@@ -26,11 +28,13 @@ const displayComp = components.map(comp=> <Route key={comp.name} path={comp.path
 function App() {
   return (
     <>
-    <NavBar/>
-    <Routes>
-      {displayComp}
-    </Routes>
-    <Footer/>
+      <NavBar/>
+      <Container maxWidth="xxl" class='allcomp'>
+      <Routes>
+        {displayComp}
+      </Routes>
+      </Container>
+      <Footer/>
     </>
   );
 }

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import './footer.css'
 
 function Footer (props) {
+  
     return (
-        <>
-            <h1>Footer</h1>
-        </>
+        <div id="footer">
+                <p>Footer</p>
+        </div>
     );
 }
 
