@@ -7,6 +7,7 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 import './registry.css'
 
 
+
 function RegistryItem (props) {
     return (
         <>
