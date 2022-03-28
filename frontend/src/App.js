@@ -13,7 +13,7 @@ import {
 } from "react-router-dom";
 
 const components = [
- { name: <Home/>, path:'/home'},
+ { name: <Home />, path:'/home'},
  { name: <NewItemForm/>, path:'/newitemform'},
  { name: <IntroPage/>, path:'/intropage'},
  {name:<EditUserForm/>, path:'edituserform'},
