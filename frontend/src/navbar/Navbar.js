@@ -11,9 +11,14 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import './navbar.css'
 import Container from '@mui/material/Container';
-
-const pages = ['Home', 'My Registry', 'About'];
+import { Outlet, Link } from "react-router-dom";
 const settings = ['Account','Logout'];
+
+const linkpaths = [
+  {page:'Home',path:'/home'},
+  {page:'My Registry',path:'/registry'},
+  {page:'About', path:'/about'}
+]
 
 function Navbar (props) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -76,9 +81,9 @@ function Navbar (props) {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {linkpaths.map((link) => (
+                <MenuItem key={link.page} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{link.page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -92,14 +97,14 @@ function Navbar (props) {
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
+            {linkpaths.map((link) => (
+              <Link className='links' to={`${link.path}`}><Button
+                key={link.page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
-              </Button>
+                 {link.page}
+              </Button></Link>
             ))}
           </Box>
 

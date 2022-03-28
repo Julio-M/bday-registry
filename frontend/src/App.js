@@ -14,6 +14,7 @@ import {
 import './App.css'
 import { Container } from '@mui/material';
 
+
 const components = [
  { name: <Home />, path:'/home'},
  { name: <NewItemForm/>, path:'/newitemform'},
@@ -29,7 +30,7 @@ function App() {
   return (
     <>
       <NavBar/>
-      <Container maxWidth="xxl" class='allcomp'>
+      <Container maxWidth="xxl" className='allcomp'>
       <Routes>
         {displayComp}
       </Routes>
