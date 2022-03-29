@@ -12,7 +12,7 @@ function RegistryList (props) {
 
     return (
         <>
-        <Grid container justifyContent='center' rowSpacing={6} columnSpacing={{ xs: 1, sm: 2, md: 8 }}>
+        <Grid id="grid-section"container justifyContent='center' rowSpacing={6} columnSpacing={{ xs: 1, sm: 2, md: 8 }}>
             {diplayprod}
         </Grid>
         </>

@@ -3,8 +3,26 @@ border-radius: .5rem;
 border-color: gray;
 }
 
-
 #purchase:hover {
     color: black;
-    background: yellow;
+    background: #ffffd4;
+    text-decoration: underline;
+}
+
+#grid-section{
+    padding-top: 50px;
+    padding-bottom: 100px;
+    padding-left: 1px;
+
+}
+
+#amazon-icon {
+    width: 30px;
+    padding-right: 5px;
+}
+
+.searchbox {
+    width: 50%;
+    align-items: center;
+    size: 50px;
 }

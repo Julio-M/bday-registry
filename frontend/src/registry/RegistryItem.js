@@ -6,16 +6,13 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import './registry.css'
 
-
-
 function RegistryItem (props) {
     return (
         <>
-    <Card id='card' sx={{ maxWidth: 345 }}>
+    <Card id='card' sx={{ maxWidth: 300 }}>
       <CardActionArea id="actionarea">
         <CardMedia 
           component="img"
-          height="100%"
           image="https://m.media-amazon.com/images/I/71DUA9yDVWL._AC_UY436_FMwebp_QL65_.jpg"
           alt=""
         />
@@ -34,10 +31,9 @@ function RegistryItem (props) {
 
         </CardContent>
       </CardActionArea>
-      <CardActions>
+      <CardActions id="purchase-container">
         <Button id="purchase" size="medium" color="primary">
-          Purchase
-        </Button>
+          <img id="amazon-icon"src="https://icons.iconarchive.com/icons/limav/flat-gradient-social/256/Amazon-icon.png"/> Purchase Item </Button>
       </CardActions>
     </Card>
         </>
