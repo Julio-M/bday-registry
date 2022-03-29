@@ -17,7 +17,8 @@ const settings = ['Account','Logout'];
 const linkpaths = [
   {page:'Home',path:'/home'},
   {page:'My Registry',path:'/registry'},
-  {page:'About', path:'/about'}
+  {page:'About', path:'/about'},
+  {page:'Sign Up', path:'/intropage'}
 ]
 
 function Navbar (props) {

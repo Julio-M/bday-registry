@@ -1,7 +1,7 @@
 import RegistryItem from './RegistryItem'
 import React, { useState } from "react";
 import Grid from '@mui/material/Grid';
-import { styled } from '@mui/material/styles';
+import './registry.css'
 
 function RegistryList (props) {
 
