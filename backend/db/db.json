@@ -1,16 +1,20 @@
 {
-  "user": [
-    {
-      "id": 1,
-      "name": "Woody",
-      "image": "http://www.pngmart.com/files/3/Toy-Story-Woody-PNG-Photos.png",
-      "likes": 8
-    },
-    {
-      "id": 2,
-      "name": "Buzz Lightyear",
-      "image": "http://www.pngmart.com/files/6/Buzz-Lightyear-PNG-Transparent-Picture.png",
-      "likes": 14
-    }
-  ]
+    "Kristen":[{
+      "products":[{
+        "id":0,
+        "title":"",
+        "price":0,
+        "link":"",
+        "image":""
+      }]
+    }],
+    "Xhulio":[{
+      "products":[{
+        "id":1,
+        "title":"",
+        "price":0,
+        "link":"",
+        "image":""
+        }]
+    }]
 }
