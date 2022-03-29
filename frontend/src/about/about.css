@@ -1,0 +1,14 @@
+#imagecontainer {
+    float: right;
+    padding-right: 2%;
+}
+
+.aboutsection {
+    width: 50%;
+    color: #303c6c;
+    float: left;
+    padding-left: 2%;
+    font-size: 2rem;
+    padding-top: 5%;
+
+}

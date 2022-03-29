@@ -3,6 +3,7 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
+import { Link } from "react-router-dom"
 import './home.css'
 
 function Home (props) {
@@ -54,9 +55,12 @@ function Home (props) {
             </ImageList>
 
             <Stack id="btn"spacing={3} direction="column">
-                <Button className="homeButton" size="large" variant="outlined">Add New Item to Registry</Button>
-                <Button className="homeButton" size="large"variant="outlined">Check My Registry</Button>
+                <Button className="homeButton" size="large" variant="outlined"><Link className="link" to="/registry">Add New Item to Registry</Link></Button>
+                <Button className="homeButton" size="large"variant="outlined"><Link className="link"to="/registry">Check My Registry</Link></Button>
             </Stack>
+
+
+            
 
         </>
     );
