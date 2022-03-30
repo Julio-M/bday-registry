@@ -57,6 +57,9 @@ function App() {
   const users = dbUser.filter(data => data.name.includes(user))
   const theId = users.map(id=>id.id)
 
+  console.log(users[0])
+  const [isLoged,setIsLoged] = useState(false)
+
   //When user is loged in change loged status to true
   const patchData = () => {
     fetch(`${usersUrl}/${theId}`, {
@@ -98,7 +101,7 @@ function App() {
         )
     })
     .then( res => res.json())
-    .then( data => console.log(data))
+    .then( data => setDbProducts([...dbProducts,data]))
     .catch( error => console.log(error.message));
   }
 
