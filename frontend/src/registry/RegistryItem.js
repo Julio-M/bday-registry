@@ -6,7 +6,11 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import './registry.css'
 
-function RegistryItem ({product}) {
+function RegistryItem ({product, deleteProduct}) {
+
+  const handleClick = () => {
+    deleteProduct(product)
+  } 
 
   const {title,image,link,price} = product
 
@@ -27,7 +31,6 @@ function RegistryItem ({product}) {
           </Typography>
           
           <Typography variant="body1" color="text.secondary">
-            Item description goes here
           </Typography>
 
           <Typography variant="body2" color="text.secondary">
@@ -39,6 +42,7 @@ function RegistryItem ({product}) {
       <CardActions id="purchase-container">
         <Button id="purchase" size="medium" color="primary">
           <img id="amazon-icon" src="https://icons.iconarchive.com/icons/limav/flat-gradient-social/256/Amazon-icon.png" alt="amazon's logo"/> <a href={link} target="_blank" rel="noopener noreferrer">Purchase Item</a></Button>
+          <Button onClick={handleClick}id="delete" size="medium" color="primary"> 🗑️  </Button>
       </CardActions>
     </Card>
         </>

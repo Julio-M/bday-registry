@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Grid from '@mui/material/Grid';
 import './registry.css'
 
-function RegistryList ({dbProducts,theId}) {
+function RegistryList ({dbProducts,theId, deleteProduct}) {
 
 //     if(comic.id===data.id) return data
 //   //     return comic
@@ -11,7 +11,7 @@ function RegistryList ({dbProducts,theId}) {
     const uid = theId[0]
     const diplayprod = dbProducts.map(prod => {
         if(prod.uid===uid){
-            return <Grid key={prod.id} item><RegistryItem id='myproducts' product={prod}/></Grid>
+            return <Grid key={prod.id} item><RegistryItem id='myproducts' product={prod} deleteProduct={deleteProduct}/></Grid>
             }
         })
 

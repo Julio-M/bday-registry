@@ -102,6 +102,18 @@ function App() {
     .catch( error => console.log(error.message));
   }
 
+  //Delete product from the database
+  const deleteProduct = (deleteItem) => {
+    fetch(`http://localhost:3000/products/${deleteItem.id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      }
+    })
+    .then(response => response.json())
+    .then(setDbProducts(dbProducts.filter(product => product.id !== deleteItem.id)))
+  }
+
 
   //Store components in a form of objects
   const components = [
@@ -110,7 +122,7 @@ function App() {
     { name: <IntroPage postUsers={postUsers} setUser={setUser} dbUser={dbUser}/>, path:'/intropage'},
     { name: <EditUserForm/>, path:'/edituserform'},
     { name: <About/>,path:'/about'},
-    { name: <Registry dbProducts={dbProducts} theId={theId}/>,path:'/registry'}
+    { name: <Registry deleteProduct={deleteProduct} dbProducts={dbProducts} theId={theId}/>,path:'/registry'}
    ]
    
   //Wrap all components inside Route

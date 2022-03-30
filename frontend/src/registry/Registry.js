@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import './registry.css'
 
 
-function Registry ({dbProducts, theId}) {
+function Registry ({dbProducts, theId, deleteProduct}) {
     return (
         <>  
             <div id="searchsortcontainer">
@@ -16,7 +16,7 @@ function Registry ({dbProducts, theId}) {
                 <option value="lovescore">Average Love: ♡ </option>
             </select>
             </div>
-            <RegistryList dbProducts={dbProducts} theId={theId}/>
+            <RegistryList dbProducts={dbProducts} theId={theId} deleteProduct={deleteProduct}/>
         </>
     );
 }
