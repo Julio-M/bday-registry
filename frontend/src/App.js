@@ -40,9 +40,11 @@ const productsUrl = 'http://localhost:3000/products'
 
 function App() {
 
-  const [user, setUser] = useState(false)
+  const [user, setUser] = useState("")
 
   const [dbUser,setDbUser] = useState([])
+
+  const [currentUser,setCurrentUser] = useState("")
 
   const [dbProducts, setDbProducts] = useState([])
 
@@ -67,7 +69,7 @@ function App() {
     { name: <Registry/>,path:'/registry'}
    ]
    
-   const displayComp = components.map(comp=> <Route key={comp.name} path={comp.path} element={comp.name} />)
+  const displayComp = components.map(comp=> <Route key={comp.name} path={comp.path} element={comp.name} />)
 
   const displayLogedIn = (<>
       <Container maxWidth="xxl" className='allcomp'>

@@ -29,7 +29,7 @@ function Login ({postUsers,setUser, dbUser}) {
         if(state){
             postUsers(isUser)
         }else if(allUsersName.includes(isUser.name)){
-            setUser(user=>!user)
+            setUser(isUser.name)
         } else {
             alert('User does not exist')
         }
