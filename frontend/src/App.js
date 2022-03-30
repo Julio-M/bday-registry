@@ -110,7 +110,7 @@ function App() {
     { name: <IntroPage postUsers={postUsers} setUser={setUser} dbUser={dbUser}/>, path:'/intropage'},
     { name: <EditUserForm/>, path:'/edituserform'},
     { name: <About/>,path:'/about'},
-    { name: <Registry/>,path:'/registry'}
+    { name: <Registry dbProducts={dbProducts} theId={theId}/>,path:'/registry'}
    ]
    
   //Wrap all components inside Route

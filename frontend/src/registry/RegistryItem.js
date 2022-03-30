@@ -6,19 +6,24 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import './registry.css'
 
-function RegistryItem (props) {
+function RegistryItem ({product}) {
+
+  const {title,image,link,price} = product
+
     return (
         <>
-    <Card id='card' sx={{ maxWidth: 300 }}>
+    <Card id='card' sx={{ maxWidth: 300} }>
       <CardActionArea id="actionarea">
         <CardMedia 
+          sx={{ height: 200}}
+          id='productimg'
           component="img"
-          image="https://m.media-amazon.com/images/I/71DUA9yDVWL._AC_UY436_FMwebp_QL65_.jpg"
-          alt=""
+          image={image}
+          alt={title}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Item Name
+            {title}
           </Typography>
           
           <Typography variant="body1" color="text.secondary">
@@ -26,14 +31,14 @@ function RegistryItem (props) {
           </Typography>
 
           <Typography variant="body2" color="text.secondary">
-            Price
+            {price}
           </Typography>
 
         </CardContent>
       </CardActionArea>
       <CardActions id="purchase-container">
         <Button id="purchase" size="medium" color="primary">
-          <img id="amazon-icon"src="https://icons.iconarchive.com/icons/limav/flat-gradient-social/256/Amazon-icon.png"/> Purchase Item </Button>
+          <img id="amazon-icon" src="https://icons.iconarchive.com/icons/limav/flat-gradient-social/256/Amazon-icon.png" alt="amazon's logo"/> <a href={link} target="_blank" rel="noopener noreferrer">Purchase Item</a></Button>
       </CardActions>
     </Card>
         </>
