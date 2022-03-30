@@ -42,28 +42,32 @@ function App() {
 
   const [user, setUser] = useState(false)
 
+  const [dbUser,setDbUser] = useState([])
+
+  const [dbProducts, setDbProducts] = useState([])
+
+  const getData = (set,url) => {
+    fetch(url)
+    .then( res => res.json())
+    .then( data => set(data))
+    .catch( error => console.log(error.message));
+  }
+
+  useEffect( () => {
+  getData(setDbUser,usersUrl)
+  getData(setDbProducts,productsUrl)
+  },[])
+
   const components = [
     { name: <Home />, path:'/home'},
     { name: <NewItemForm/>, path:'/newitemform'},
-    { name: <IntroPage postUsers={postUsers} setUser={setUser}/>, path:'/intropage'},
+    { name: <IntroPage postUsers={postUsers} setUser={setUser} dbUser={dbUser}/>, path:'/intropage'},
     { name: <EditUserForm/>, path:'edituserform'},
     { name: <About/>,path:'/about'},
     { name: <Registry/>,path:'/registry'}
    ]
    
    const displayComp = components.map(comp=> <Route key={comp.name} path={comp.path} element={comp.name} />)
-
-  const getData = (url) => {
-    fetch(url)
-    .then( res => res.json())
-    .then( data => console.log(data))
-    .catch( error => console.log(error.message));
-  }
-
-  useEffect( () => {
-  getData(usersUrl)
-  getData(productsUrl)
-  },[])
 
   const displayLogedIn = (<>
       <Container maxWidth="xxl" className='allcomp'>
@@ -76,7 +80,7 @@ function App() {
 
   const displayNotLogedIn = (<>
     <Container maxWidth="xxl" className='allcomp'>
-    <IntroPage postUsers={postUsers} setUser={setUser}/>
+    <IntroPage postUsers={postUsers} setUser={setUser} dbUser={dbUser}/>
     </Container>
     <Footer/>
   </>)

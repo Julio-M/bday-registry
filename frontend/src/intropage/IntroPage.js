@@ -2,10 +2,10 @@ import Login from './login/Login'
 
 import React from "react";
 
-function IntroPage ({postUsers,setUser}) {
+function IntroPage ({postUsers,setUser, dbUser}) {
     return (
         <>
-            <Login postUsers={postUsers} setUser={setUser}/>
+            <Login postUsers={postUsers} setUser={setUser} dbUser={dbUser}/>
         </>
     );
 }

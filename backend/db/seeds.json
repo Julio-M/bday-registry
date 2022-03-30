@@ -2,11 +2,13 @@
   "users": [
     {
     "id":0,
-    "name": "Kristen"
+    "name": "Kristen",
+    "loged":false
   },
   {
     "id":1,
-    "name": "Xhulio"
+    "name": "Xhulio",
+    "loged":false
   }
 ],
   "products": [{
