@@ -87,9 +87,9 @@ function App() {
 
   const components = [
     { name: <Home />, path:'/home'},
-    { name: <NewItemForm/>, path:'/newitemform'},
+    { name: <NewItemForm theId={theId}/>, path:'/newitemform'},
     { name: <IntroPage postUsers={postUsers} setUser={setUser} dbUser={dbUser}/>, path:'/intropage'},
-    { name: <EditUserForm/>, path:'edituserform'},
+    { name: <EditUserForm/>, path:'/edituserform'},
     { name: <About/>,path:'/about'},
     { name: <Registry/>,path:'/registry'}
    ]

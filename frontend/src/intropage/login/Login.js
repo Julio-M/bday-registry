@@ -1,6 +1,8 @@
 import { Button } from "@mui/material";
 import React, { useState } from "react";
 import './login.css'
+import { useNavigate } from "react-router-dom";
+
 
 const userDefault = {
     name:"",
@@ -8,6 +10,8 @@ const userDefault = {
 }
 
 function Login ({postUsers,setUser, dbUser}) { 
+    let navigate = useNavigate();
+
     const [state,setState] = useState(false)
     const [isUser,setIsUser] = useState(userDefault)
 
@@ -36,6 +40,7 @@ function Login ({postUsers,setUser, dbUser}) {
             setState(!state)
         }else if(allUsersName.includes(isUser.name)){
             setUser(isUser.name)
+            navigate(`/home`)
         } else {
             alert('User does not exist')
         }
