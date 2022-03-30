@@ -2,7 +2,7 @@ import { Button } from "@mui/material";
 import React, { useState } from "react";
 import './login.css'
 
-function Login ({postUsers,setUser, dbUser,pathcData}) { 
+function Login ({postUsers,setUser, dbUser}) { 
     const [state,setState] = useState(false)
     const [isUser,setIsUser] = useState({
         name:""
@@ -31,7 +31,6 @@ function Login ({postUsers,setUser, dbUser,pathcData}) {
             postUsers(isUser)
         }else if(allUsersName.includes(isUser.name)){
             setUser(isUser.name)
-            pathcData()
         } else {
             alert('User does not exist')
         }

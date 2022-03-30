@@ -88,7 +88,7 @@ function App() {
   const components = [
     { name: <Home />, path:'/home'},
     { name: <NewItemForm/>, path:'/newitemform'},
-    { name: <IntroPage postUsers={postUsers} setUser={setUser} dbUser={dbUser} patchData={patchData}/>, path:'/intropage'},
+    { name: <IntroPage postUsers={postUsers} setUser={setUser} dbUser={dbUser}/>, path:'/intropage'},
     { name: <EditUserForm/>, path:'edituserform'},
     { name: <About/>,path:'/about'},
     { name: <Registry/>,path:'/registry'}
@@ -107,7 +107,7 @@ function App() {
 
   const displayNotLogedIn = (<>
     <Container maxWidth="xxl" className='allcomp'>
-    <IntroPage postUsers={postUsers} setUser={setUser} dbUser={dbUser} patchData={patchData}/>
+    <IntroPage postUsers={postUsers} setUser={setUser} dbUser={dbUser}/>
     </Container>
     <Footer/>
   </>)
