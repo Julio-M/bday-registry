@@ -17,6 +17,10 @@
     {
       "name": "New",
       "id": 3
+    },
+    {
+      "name": "BrandNew",
+      "id": 4
     }
   ],
   "products": [

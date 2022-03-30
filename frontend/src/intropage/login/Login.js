@@ -25,7 +25,7 @@ function Login ({postUsers,setUser, dbUser}) {
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault()
+        
         if(state){
             postUsers(isUser)
         }else if(allUsersName.includes(isUser.name)){
