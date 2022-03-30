@@ -2,15 +2,16 @@ import { Button } from "@mui/material";
 import React, { useState } from "react";
 import './login.css'
 
-function Login ({postUsers,setUser, dbUser}) { 
+function Login ({postUsers,setUser, dbUser,pathcData}) { 
     const [state,setState] = useState(false)
     const [isUser,setIsUser] = useState({
         name:""
     })
 
     const allUsersName = dbUser.map(user=> user.name)
+    const userId = dbUser.map(user=>user.id)
 
-    console.log(allUsersName)
+
 
     const handleClick =()=>{
         setState(!state)
@@ -25,11 +26,12 @@ function Login ({postUsers,setUser, dbUser}) {
     }
 
     const handleSubmit = (e) => {
-        
+        e.preventDefault()
         if(state){
             postUsers(isUser)
         }else if(allUsersName.includes(isUser.name)){
             setUser(isUser.name)
+            pathcData()
         } else {
             alert('User does not exist')
         }

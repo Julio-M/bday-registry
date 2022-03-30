@@ -8,19 +8,7 @@
     {
       "id": 1,
       "name": "Xhulio",
-      "loged": false
-    },
-    {
-      "name": "sfds",
-      "id": 2
-    },
-    {
-      "name": "New",
-      "id": 3
-    },
-    {
-      "name": "BrandNew",
-      "id": 4
+      "loged": true
     }
   ],
   "products": [

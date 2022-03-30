@@ -44,7 +44,8 @@ function App() {
 
   const [dbUser,setDbUser] = useState([])
 
-  const [currentUser,setCurrentUser] = useState("")
+
+  console.log('Users',dbUser,user)
 
   const [dbProducts, setDbProducts] = useState([])
 
@@ -55,15 +56,39 @@ function App() {
     .catch( error => console.log(error.message));
   }
 
+  const users = dbUser.filter(data => data.name.includes(user))
+  const theId = users.map(id=>id.id)
+
+  const patchData = () => {
+    fetch(`${usersUrl}/${theId}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+        },
+        body: JSON.stringify({
+          loged:true
+        })
+    })
+    .then( res => res.json())
+    .catch( error => console.log(error.message));
+  }
+
+  useEffect( () => {
+    patchData()
+  },[user])
+
+
   useEffect( () => {
   getData(setDbUser,usersUrl)
   getData(setDbProducts,productsUrl)
   },[])
 
+
   const components = [
     { name: <Home />, path:'/home'},
     { name: <NewItemForm/>, path:'/newitemform'},
-    { name: <IntroPage postUsers={postUsers} setUser={setUser} dbUser={dbUser}/>, path:'/intropage'},
+    { name: <IntroPage postUsers={postUsers} setUser={setUser} dbUser={dbUser} patchData={patchData}/>, path:'/intropage'},
     { name: <EditUserForm/>, path:'edituserform'},
     { name: <About/>,path:'/about'},
     { name: <Registry/>,path:'/registry'}
@@ -82,7 +107,7 @@ function App() {
 
   const displayNotLogedIn = (<>
     <Container maxWidth="xxl" className='allcomp'>
-    <IntroPage postUsers={postUsers} setUser={setUser} dbUser={dbUser}/>
+    <IntroPage postUsers={postUsers} setUser={setUser} dbUser={dbUser} patchData={patchData}/>
     </Container>
     <Footer/>
   </>)
