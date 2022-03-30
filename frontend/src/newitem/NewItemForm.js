@@ -1,4 +1,5 @@
 import React, { useState,useEffect } from "react";
+
 import './newitemform.css'
 
 const defaultForm = {
@@ -23,13 +24,6 @@ const handleSubmit = (e) => {
     e.preventDefault()
     formReset()
 }
-
-useEffect( () => {
-fetch(`http://localhost:3000/users`)
-.then( res => res.json())
-.then( data => data.forEach(users=>console.log(users)))
-.catch( error => console.log(error.message));
-},[])
 
 // const postData = () => {
 //     fetch('', {
@@ -60,7 +54,7 @@ const handleChange = (e) => {
 
    return (
        <>
-            <form onSubmit={handleSubmit} className="form-style-7">
+            <form id='myForm' onSubmit={handleSubmit} className="form-style-7">
                 <ul>
                 <li>
                     <label htmlFor="name">Product's url</label>

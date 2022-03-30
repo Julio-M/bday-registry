@@ -9,6 +9,7 @@ server.use(cors());
 server.use(jsonServer.bodyParser);
 server.use(middlewares);
 server.use(router);
+server.use(jsonServer.rewriter({"/users/:userId/products/:productId":"/products/:productUd"}));
 
 const PORT = process.env.PORT || 3000;
 

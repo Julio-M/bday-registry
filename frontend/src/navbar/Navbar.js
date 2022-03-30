@@ -21,7 +21,7 @@ const linkpaths = [
   {page:'Sign Up', path:'/intropage'}
 ]
 
-function Navbar (props) {
+function Navbar ({user}) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -39,21 +39,9 @@ function Navbar (props) {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-    return (
-        <>
-    <AppBar id='topbar' position="fixed">
-    <Container maxWidth="xxl">
-        <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
-          >
-            LOGO
-          </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+  const whenLogedIn = (<>
+     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -84,7 +72,7 @@ function Navbar (props) {
             >
               {linkpaths.map((link) => (
                 <MenuItem key={link.page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{link.page}</Typography>
+                <Typography textAlign="center">{link.page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -112,7 +100,7 @@ function Navbar (props) {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <p id='usernav'>welcome, User</p>
+                <p id='usernav'>{`hi, ${user}`}</p>
               </IconButton>
             </Tooltip>
             <Menu
@@ -138,6 +126,27 @@ function Navbar (props) {
               ))}
             </Menu>
           </Box>
+  </>)
+
+  const logedOut = (<>
+    <Button id="loginbtn">Log In</Button>
+    <Button id='signupbtn'>Sign Up</Button>
+  </>)
+
+    return (
+        <>
+    <AppBar id='topbar' position="fixed">
+    <Container maxWidth="xxl">
+        <Toolbar disableGutters>
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+          >
+            LOGO
+          </Typography>
+          {user?whenLogedIn:logedOut}
         </Toolbar>
         </Container>
     </AppBar>
