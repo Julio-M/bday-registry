@@ -1,4 +1,5 @@
 ### react ###
+*.json
 .DS_*
 *.log
 logs
