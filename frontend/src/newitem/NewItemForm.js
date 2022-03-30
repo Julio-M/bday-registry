@@ -7,6 +7,17 @@ import './newitemform.css'
 
 function NewItemForm ({theId, dbProducts, setDbProducts,postProduct}) {
 
+const [mockValue,setMockValue] = useState("")
+
+const mockscrape = {
+    "title":"Marsail Gel Memory Foam Pillows ",
+    "price":24.99 ,
+    "link":"https://www.amazon.com/Marsail-Sleeping-Adjustable-Sleepers-Washable/dp/B097PW43LG/ref=sr_1_1_sspa?keywords=pillows&qid=1648661276&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExV01OS1ZaQjJCQ0xLJmVuY3J5cHRlZElkPUEwMDgzMjE1MVFSNlRSV0ZJVzBDVSZlbmNyeXB0ZWRBZElkPUEwNTI1Njk3M0RVS0NWSUIxVlBMMiZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU=",
+    "image":"https://m.media-amazon.com/images/I/61uij0Tv0pL._AC_SX679_.jpg"
+}
+
+
+
 //current user's id    
 const uid = theId[0]
 
@@ -35,6 +46,20 @@ const handleChange = (e) => {
     [name]:value,
     "uid":uid
     })
+}
+
+const handleMock = (e) => {
+    let value=e.target.value
+    setMockValue(value)
+    if(value==='scrape'){
+    setFormData({...formData,
+        "title":mockscrape.title,
+        "price":mockscrape.price,
+        "link":mockscrape.link,
+        "image":mockscrape.image,
+        "uid":uid
+    })
+}
 }
 
 const handleSubmit = (e) => {
@@ -69,6 +94,16 @@ const handleSubmit = (e) => {
                 </li>
                 <li>
                     <Button id='productbtn' type="submit" value="Send This">SUBMIT</Button>
+                </li>
+                </ul>       
+        </form>
+        <form id='scrapeform' className="form-style-7">
+                <ul>
+                <h6>Or paste the product's url here...</h6>
+                <li>
+                    <label htmlFor="name">Product's url</label>
+                    <input onChange={handleMock} type="text" name="mockscrape" value={mockValue}/>
+                    <span>Paste the product's url here...</span>
                 </li>
                 </ul>       
         </form>

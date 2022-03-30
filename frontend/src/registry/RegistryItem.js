@@ -34,14 +34,14 @@ function RegistryItem ({product, deleteProduct}) {
           </Typography>
 
           <Typography variant="body2" color="text.secondary">
-            {price}
+            ${price}
           </Typography>
 
         </CardContent>
       </CardActionArea>
       <CardActions id="purchase-container">
         <Button id="purchase" size="medium" color="primary">
-          <img id="amazon-icon" src="https://icons.iconarchive.com/icons/limav/flat-gradient-social/256/Amazon-icon.png" alt="amazon's logo"/> <a href={link} target="_blank" rel="noopener noreferrer">Purchase Item</a></Button>
+          <img id="amazon-icon" src="https://icons.iconarchive.com/icons/limav/flat-gradient-social/256/Amazon-icon.png" alt="amazon's logo"/> <a href={link} id='purchase' target="_blank" rel="noopener noreferrer">Purchase Item</a></Button>
           <Button onClick={handleClick}id="delete" size="medium" color="primary"> 🗑️  </Button>
       </CardActions>
     </Card>

@@ -14,6 +14,10 @@
   height: inherit;
 }
 
+#purchase {
+  text-decoration: none;
+}
+
 .searchbar input {
   width: 90%;
   font-size: 1rem;
