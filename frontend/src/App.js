@@ -154,7 +154,7 @@ function App() {
 
   return (
     <>
-      <NavBar user={user}/>
+      <NavBar user={user} setUser={setUser}/>
       {user?displayLogedIn:displayNotLogedIn}
     </>
   );

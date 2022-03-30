@@ -11,7 +11,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import './navbar.css'
 import Container from '@mui/material/Container';
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link,useNavigate } from "react-router-dom";
 const settings = ['Account','Logout'];
 
 const linkpaths = [
@@ -21,7 +21,8 @@ const linkpaths = [
   {page:'New Item', path:'/newitemform'}
 ]
 
-function Navbar ({user}) {
+function Navbar ({user, setUser}) {
+  let navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -41,8 +42,14 @@ function Navbar ({user}) {
   };
 
   const handleFun =(e)=>{
-    console.log(e.target)
+    const p = e.target
+    let value = p.textContent
 
+    if(value==='Logout'){
+      setUser(false)
+    } else {
+      navigate(`/edituserform`)
+    }
   }
 
 

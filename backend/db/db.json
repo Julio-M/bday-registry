@@ -9,19 +9,16 @@
       "id": 2,
       "name": "Xhulio",
       "loged": true
+    },
+    {
+      "name": "Xhulio",
+      "loged": false,
+      "id": 3
     }
   ],
   "products": [
     {
       "id": 2,
-      "title": "Blue Yeti",
-      "price": 99.99,
-      "link": "https://www.amazon.com/gp/product/B00N1YPXW2/?tag=hubacct9792-20&th=1",
-      "image": "https://m.media-amazon.com/images/I/61rJiv6VZNL._AC_SX679_.jpg",
-      "uid": 2
-    },
-    {
-      "id": 4,
       "title": "Blue Yeti",
       "price": 99.99,
       "link": "https://www.amazon.com/gp/product/B00N1YPXW2/?tag=hubacct9792-20&th=1",
