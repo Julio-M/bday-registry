@@ -1,17 +1,24 @@
 {
   "users": [
     {
-    "id":0,
+    "id":1,
     "name": "Kristen",
     "loged":false
   },
   {
-    "id":1,
+    "id":2,
     "name": "Xhulio",
     "loged":false
   }
 ],
-  "products": [{
-    
-  }]
+  "products": [
+    {
+    "id":0,
+    "title":"",
+    "price":0,
+    "link":"",
+    "image":"",
+    "uid":1
+  }
+]
 }

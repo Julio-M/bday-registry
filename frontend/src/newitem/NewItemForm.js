@@ -1,7 +1,16 @@
+import { Button } from "@mui/material";
 import React, { useState,useEffect } from "react";
 
 import './newitemform.css'
 
+
+
+function NewItemForm ({theId, dbProducts, setDbProducts,postProduct}) {
+
+//current user's id    
+const uid = theId[0]
+
+//default form data
 const defaultForm = {
     "title":"",
     "price":0,
@@ -9,48 +18,30 @@ const defaultForm = {
     "image":""
 }
 
-
-function NewItemForm (props) {
-
 const [formData,setFormData] = useState(defaultForm)
+
 
 const {title,price,image,link} = formData
 
 const formReset = () => {
-    setFormData(formData)
+    setFormData(defaultForm)
 }
-
-const handleSubmit = (e) => {
-    e.preventDefault()
-    formReset()
-}
-
-// const postData = () => {
-//     fetch('', {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json",
-//             Accept: "application/json"
-//         },
-//         body: JSON.stringify({
-//             key: value
-//         })
-//     })
-//     .then( res => res.json())
-//     .then( data => console.log(data))
-//     .catch( error => console.log(error.message));
-// }
 
 const handleChange = (e) => {
     const name= e.target.name
     let value = e.target.value
 
     setFormData({...formData,
-    [name]:value
+    [name]:value,
+    "uid":uid
     })
 }
 
-
+const handleSubmit = (e) => {
+    e.preventDefault()
+    postProduct(formData)
+    formReset()
+}
 
    return (
        <>
@@ -68,7 +59,7 @@ const handleChange = (e) => {
                 </li>
                 <li>
                     <label htmlFor="name">Price</label>
-                    <input onChange={handleChange} type="text" name="price" value={price}/>
+                    <input onChange={handleChange} type="text" name="price" placeholder="$" value={price}/>
                     <span>Product's price</span>
                 </li>
                 <li>
@@ -77,7 +68,7 @@ const handleChange = (e) => {
                     <span>Image url</span>
                 </li>
                 <li>
-                    <input type="submit" value="Send This"/>
+                    <Button id='productbtn' type="submit" value="Send This">SUBMIT</Button>
                 </li>
                 </ul>       
         </form>

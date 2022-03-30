@@ -1,61 +1,88 @@
 {
   "users": [
     {
-      "id": 0,
+      "id": 1,
       "name": "Kristen",
       "loged": false
     },
     {
-      "id": 1,
+      "id": 2,
       "name": "Xhulio",
       "loged": true
-    },
-    {
-      "name": "Hello",
-      "id": 2
-    },
-    {
-      "name": "New",
-      "loged": false,
-      "id": 3
-    },
-    {
-      "name": "What",
-      "loged": true,
-      "id": 4
-    },
-    {
-      "name": "HelloNewUser",
-      "loged": true,
-      "id": 5
-    },
-    {
-      "name": "BrandNew",
-      "loged": false,
-      "id": 6
-    },
-    {
-      "name": "hellonew",
-      "loged": true,
-      "id": 7
-    },
-    {
-      "name": "Xhulio",
-      "loged": false,
-      "id": 8
-    },
-    {
-      "name": "hellonew",
-      "loged": false,
-      "id": 9
-    },
-    {
-      "name": "HelloNewUser",
-      "loged": false,
-      "id": 10
     }
   ],
   "products": [
-    {}
+    {
+      "id": 0,
+      "title": "",
+      "price": 0,
+      "link": "",
+      "image": "",
+      "uid": 1
+    },
+    {
+      "title": "fsdfds",
+      "price": "321",
+      "link": "dadas",
+      "image": "dasa",
+      "uid": [],
+      "id": 1
+    },
+    {
+      "title": "dsfsd",
+      "price": "31231",
+      "link": "dsadas",
+      "image": "dasda",
+      "uid": [],
+      "id": 2
+    },
+    {
+      "title": "dadas",
+      "price": "321",
+      "link": "asdas",
+      "image": "dada",
+      "uid": [
+        2
+      ],
+      "id": 3
+    },
+    {
+      "title": "new",
+      "price": "03213",
+      "link": "hello",
+      "image": "item",
+      "id": 4
+    },
+    {
+      "title": "new",
+      "price": "0321",
+      "link": "Hello",
+      "image": "adsasda",
+      "id": 5
+    },
+    {
+      "title": "sdfdsf",
+      "price": "123123",
+      "link": "sdadad",
+      "image": "dadad",
+      "uid": 2,
+      "id": 6
+    },
+    {
+      "title": "is",
+      "price": "02313",
+      "link": "what",
+      "image": "happemnimg",
+      "uid": 1,
+      "id": 7
+    },
+    {
+      "title": "yes",
+      "price": "0231",
+      "link": "what",
+      "image": "no",
+      "uid": 2,
+      "id": 8
+    }
   ]
 }

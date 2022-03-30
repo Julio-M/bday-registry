@@ -40,15 +40,13 @@ const productsUrl = 'http://localhost:3000/products'
 
 function App() {
 
-  const [user, setUser] = useState("")
+  const [user, setUser] = useState("Xhulio")
 
   const [dbUser,setDbUser] = useState([])
 
-
-  console.log('Users',dbUser,user)
-
   const [dbProducts, setDbProducts] = useState([])
 
+  //Fetch data from the database - used arguments to access both users and products with same function
   const getData = (set,url) => {
     fetch(url)
     .then( res => res.json())
@@ -59,6 +57,7 @@ function App() {
   const users = dbUser.filter(data => data.name.includes(user))
   const theId = users.map(id=>id.id)
 
+  //When user is loged in change loged status to true
   const patchData = () => {
     fetch(`${usersUrl}/${theId}`, {
         method: "PATCH",
@@ -74,28 +73,50 @@ function App() {
     .catch( error => console.log(error.message));
   }
 
+//Run the function whenever the user is changed
   useEffect( () => {
     patchData()
   },[user])
 
 
+  //Fetch Users and products when page is loaded
   useEffect( () => {
   getData(setDbUser,usersUrl)
   getData(setDbProducts,productsUrl)
   },[])
 
+  //Post new product to the database
+  const postProduct = (productData) => {
+    fetch(productsUrl, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+        },
+        body: JSON.stringify(
+          productData
+        )
+    })
+    .then( res => res.json())
+    .then( data => console.log(data))
+    .catch( error => console.log(error.message));
+  }
 
+
+  //Store components in a form of objects
   const components = [
     { name: <Home />, path:'/home'},
-    { name: <NewItemForm theId={theId}/>, path:'/newitemform'},
+    { name: <NewItemForm theId={theId} dbProducts={dbProducts} setDbProducts={setDbProducts} postProduct={postProduct}/>, path:'/newitemform'},
     { name: <IntroPage postUsers={postUsers} setUser={setUser} dbUser={dbUser}/>, path:'/intropage'},
     { name: <EditUserForm/>, path:'/edituserform'},
     { name: <About/>,path:'/about'},
     { name: <Registry/>,path:'/registry'}
    ]
    
+  //Wrap all components inside Route
   const displayComp = components.map(comp=> <Route key={comp.name} path={comp.path} element={comp.name} />)
 
+  //What to display when a user is loged in
   const displayLogedIn = (<>
       <Container maxWidth="xxl" className='allcomp'>
       <Routes>
@@ -105,6 +126,7 @@ function App() {
       <Footer/>
   </>)
 
+  //What to display when NO user is loged in
   const displayNotLogedIn = (<>
     <Container maxWidth="xxl" className='allcomp'>
     <IntroPage postUsers={postUsers} setUser={setUser} dbUser={dbUser}/>
