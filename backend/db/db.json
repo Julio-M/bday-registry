@@ -1,15 +1,31 @@
 {
   "users": [
     {
-    "name": "Kristen",
-    "userId":1
-  },
-  {
-    "name": "Xhulio",
-    "userId":2
-  }
-],
-  "products": [{
-    
-  }]
+      "id": 0,
+      "name": "Kristen"
+    },
+    {
+      "id": 1,
+      "name": "Xhulio"
+    },
+    {
+      "name": "leo",
+      "id": 2
+    },
+    {
+      "name": "hello",
+      "id": 3
+    },
+    {
+      "name": "new",
+      "id": 4
+    },
+    {
+      "name": "newdasd",
+      "id": 5
+    }
+  ],
+  "products": [
+    {}
+  ]
 }

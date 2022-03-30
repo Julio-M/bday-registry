@@ -1,12 +1,12 @@
 {
   "users": [
     {
-    "name": "Kristen",
-    "userId":1
+    "id":0,
+    "name": "Kristen"
   },
   {
-    "name": "Xhulio",
-    "userId":2
+    "id":1,
+    "name": "Xhulio"
   }
 ],
   "products": [{

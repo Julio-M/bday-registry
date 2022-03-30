@@ -12,28 +12,46 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import { Navigate } from 'react-router-dom';
 import './App.css'
-import { Container, Switch } from '@mui/material';
+import { Container } from '@mui/material';
 
 
-const components = [
- { name: <Home />, path:'/home'},
- { name: <NewItemForm/>, path:'/newitemform'},
- { name: <IntroPage/>, path:'/intropage'},
- { name: <EditUserForm/>, path:'edituserform'},
- { name: <About/>,path:'/about'},
- { name: <Registry/>,path:'/registry'}
-]
+const postUsers = (formData) => {
 
-const displayComp = components.map(comp=> <Route key={comp.name} path={comp.path} element={comp.name} />)
+  console.log(formData)
+  fetch(usersUrl, {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+      },
+      body: JSON.stringify(
+          formData
+      )
+  })
+  .then( res => res.json())
+  .then( data => console.log(data))
+  .catch( error => console.log(error.message));
+ }
+
 
 const usersUrl = 'http://localhost:3000/users'
 const productsUrl = 'http://localhost:3000/products'
 
 function App() {
 
-  const [user, setUser] = useState("")
+  const [user, setUser] = useState(false)
+
+  const components = [
+    { name: <Home />, path:'/home'},
+    { name: <NewItemForm/>, path:'/newitemform'},
+    { name: <IntroPage postUsers={postUsers} setUser={setUser}/>, path:'/intropage'},
+    { name: <EditUserForm/>, path:'edituserform'},
+    { name: <About/>,path:'/about'},
+    { name: <Registry/>,path:'/registry'}
+   ]
+   
+   const displayComp = components.map(comp=> <Route key={comp.name} path={comp.path} element={comp.name} />)
 
   const getData = (url) => {
     fetch(url)
@@ -58,10 +76,7 @@ function App() {
 
   const displayNotLogedIn = (<>
     <Container maxWidth="xxl" className='allcomp'>
-    <Routes>
-    <Route path='/intropage' element={<IntroPage/>}/>
-    </Routes>
-    <Navigate to='/intropage'/>
+    <IntroPage postUsers={postUsers} setUser={setUser}/>
     </Container>
     <Footer/>
   </>)

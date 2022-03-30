@@ -1,12 +1,11 @@
 import Login from './login/Login'
-import SignUp from './signup/SignUp'
 
-import React, { useState } from "react";
+import React from "react";
 
-function IntroPage (props) {
+function IntroPage ({postUsers,setUser}) {
     return (
         <>
-            <Login/>
+            <Login postUsers={postUsers} setUser={setUser}/>
         </>
     );
 }
