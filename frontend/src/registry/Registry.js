@@ -3,11 +3,16 @@ import React, { useState } from "react";
 import './registry.css'
 
 
-function Registry ({dbProducts, theId, deleteProduct}) {
+function Registry ({dbProducts, theId, deleteProduct,setSearch}) {
+
+    const handleOnChange = (e)=> {
+        setSearch(search => search=e.target.value)
+    }
+
     return (
         <>  
             <div id="searchsortcontainer">
-            <input className="searchbox" type="text" placeholder="Search for item 🔍"></input>
+            <input className="searchbox" onChange={handleOnChange} type="text" placeholder="Search for item 🔍"></input>
             <select className="sortbox"textholder="Sort By">
                 <option value="all" >Sort</option>
                 <option value="lotohi" >Price: Low to High</option>

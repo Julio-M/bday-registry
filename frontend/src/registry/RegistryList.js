@@ -5,8 +5,9 @@ import './registry.css'
 
 function RegistryList ({dbProducts,theId, deleteProduct}) {
 
-//     if(comic.id===data.id) return data
+  //     if(comic.id===data.id) return data
 //   //     return comic
+
 
     const uid = theId[0]
     const diplayprod = dbProducts.map(prod => {

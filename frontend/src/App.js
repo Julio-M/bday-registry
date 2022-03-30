@@ -46,6 +46,8 @@ function App() {
 
   const [dbProducts, setDbProducts] = useState([])
 
+  const [search,setSearch] = useState("")
+
   //Fetch data from the database - used arguments to access both users and products with same function
   const getData = (set,url) => {
     fetch(url)
@@ -105,6 +107,8 @@ function App() {
     .catch( error => console.log(error.message));
   }
 
+  const filteredProducts = dbProducts.filter(prod => prod.title.toLowerCase().includes(search.toLowerCase()))
+
   //Delete product from the database
   const deleteProduct = (deleteItem) => {
     fetch(`http://localhost:3000/products/${deleteItem.id}`, {
@@ -117,7 +121,6 @@ function App() {
     .then(setDbProducts(dbProducts.filter(product => product.id !== deleteItem.id)))
   }
 
-
   //Store components in a form of objects
   const components = [
     { name: <Home />, path:'/home'},
@@ -125,7 +128,7 @@ function App() {
     { name: <IntroPage postUsers={postUsers} setUser={setUser} dbUser={dbUser}/>, path:'/intropage'},
     { name: <EditUserForm/>, path:'/edituserform'},
     { name: <About/>,path:'/about'},
-    { name: <Registry deleteProduct={deleteProduct} dbProducts={dbProducts} theId={theId}/>,path:'/registry'}
+    { name: <Registry deleteProduct={deleteProduct} dbProducts={filteredProducts} theId={theId} setSearch={setSearch}/>,path:'/registry'}
    ]
    
   //Wrap all components inside Route
