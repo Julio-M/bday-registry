@@ -40,7 +40,7 @@ const productsUrl = 'http://localhost:3000/products'
 
 function App() {
 
-  const [user, setUser] = useState("Xhulio")
+  const [user, setUser] = useState("")
 
   const [dbUser,setDbUser] = useState([])
 
