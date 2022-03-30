@@ -1,14 +1,11 @@
 import Login from './login/Login'
-import SignUp from './signup/SignUp'
 
-import React, { useState } from "react";
+import React from "react";
 
-function IntroPage (props) {
+function IntroPage ({postUsers,setUser, dbUser,patchData} ) {
     return (
         <>
-            <h1>Intro page</h1>
-            <Login/>
-            <SignUp/>
+            <Login postUsers={postUsers} setUser={setUser} dbUser={dbUser} />
         </>
     );
 }

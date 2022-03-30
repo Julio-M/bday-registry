@@ -55,7 +55,7 @@ function Home (props) {
             </ImageList>
 
             <Stack id="btn"spacing={3} direction="column">
-                <Button className="homeButton" size="large" variant="outlined"><Link className="link" to="/registry">Add New Item to Registry</Link></Button>
+                <Button className="homeButton" size="large" variant="outlined"><Link className="link" to="/newitemform">Add New Item to Registry</Link></Button>
                 <Button className="homeButton" size="large"variant="outlined"><Link className="link"to="/registry">Check My Registry</Link></Button>
             </Stack>
 

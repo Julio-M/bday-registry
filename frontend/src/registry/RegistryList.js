@@ -3,16 +3,25 @@ import React, { useState } from "react";
 import Grid from '@mui/material/Grid';
 import './registry.css'
 
-function RegistryList (props) {
+function RegistryList ({dbProducts,theId}) {
 
+//     if(comic.id===data.id) return data
+//   //     return comic
 
-    const myproducts = [0,1,2,3,4,5,6,7,8]
+    const uid = theId[0]
+    const diplayprod = dbProducts.map(prod => {
+        if(prod.uid===uid){
+            return <Grid key={prod.id} item><RegistryItem id='myproducts' product={prod}/></Grid>
+            }
+        })
 
-    const diplayprod = myproducts.map(prod=> <Grid item><RegistryItem/></Grid>)
+    const testdisplay = diplayprod.map(prod=>prod)
+
+    console.log(testdisplay)
 
     return (
         <>
-        <Grid id="grid-section"container justifyContent='center' rowSpacing={6} columnSpacing={{ xs: 1, sm: 2, md: 8 }}>
+        <Grid id="grid-section" container justifyContent='center' rowSpacing={6} columnSpacing={{ xs: 1, sm: 2, md: 8 }}>
             {diplayprod}
         </Grid>
         </>
