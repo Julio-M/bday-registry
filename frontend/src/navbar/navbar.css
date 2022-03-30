@@ -11,6 +11,11 @@
   text-decoration: none;
 }
 
+.droplinks {
+  color: rgb(20, 19, 19);
+  text-decoration: none;
+}
+
 #loginbtn {
   color: rgb(255, 255, 255);
 }

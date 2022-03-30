@@ -40,6 +40,12 @@ function Navbar ({user}) {
     setAnchorElUser(null);
   };
 
+  const handleFun =(e)=>{
+    console.log(e.target)
+
+  }
+
+
   const whenLogedIn = (<>
      <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -72,7 +78,7 @@ function Navbar ({user}) {
             >
               {linkpaths.map((link) => (
                 <MenuItem key={link.page} onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">{link.page}</Typography>
+                <Link className='droplinks' to={`${link.path}`}><Typography textAlign="center">{link.page}</Typography></Link>
                 </MenuItem>
               ))}
             </Menu>
@@ -121,7 +127,7 @@ function Navbar ({user}) {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Typography onClick={handleFun} name={setting} textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
             </Menu>
