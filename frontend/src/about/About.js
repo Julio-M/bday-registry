@@ -59,9 +59,10 @@ function About (props) {
     return (
         <>
             <h1>GetList</h1>
+            <div id="wrapper">
             <div id="imagecontainer">
             <ImageList
-      sx={{ width: 500, height: 450 }}
+      sx={{ width: 500, height: 500 }}
       variant="quilted"
       cols={4}
       rowHeight={121}
@@ -77,10 +78,19 @@ function About (props) {
       ))}
     </ImageList>
     </div>
-            <p className="aboutsection">
-                Register a birthday wish list for yourself or for your children. Simply sign up and instantly start 
-                Giftster
+
+    <div id="textcontainer">
+    <p className="aboutsection">
+                Shower yourself with the perfect gifts with Giftster! Curate a wish list for your special day to share with your friends and family. 
+                <br>
+                </br>
+                <br>
+                </br>
+                 Sign up and instantly start adding items onto your gift list! 
             </p>
+    </div>
+    </div>
+
 
         </>
     );

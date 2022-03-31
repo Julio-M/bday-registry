@@ -48,6 +48,8 @@ function App() {
 
   const [search,setSearch] = useState("")
 
+  const [editUser, setEditUser]= useState("")
+
   //Fetch data from the database - used arguments to access both users and products with same function
   const getData = (set,url) => {
     fetch(url)
@@ -59,7 +61,6 @@ function App() {
   const users = dbUser.filter(data => data.name.includes(user))
   const theId = users.map(id=>id.id)
 
-  console.log(users[0])
   const [isLoged,setIsLoged] = useState(false)
 
   //When user is loged in change loged status to true
@@ -107,7 +108,9 @@ function App() {
     .catch( error => console.log(error.message));
   }
 
+  //Filter through products
   const filteredProducts = dbProducts.filter(prod => prod.title.toLowerCase().includes(search.toLowerCase()))
+
 
   //Delete product from the database
   const deleteProduct = (deleteItem) => {
@@ -121,12 +124,29 @@ function App() {
     .then(setDbProducts(dbProducts.filter(product => product.id !== deleteItem.id)))
   }
 
+  //Patch new user name
+  const editUserName = () => {
+    fetch(`${usersUrl}/${theId}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+        },
+        body: JSON.stringify({
+          name:editUser
+        })
+    })
+    .then( res => res.json())
+    .catch( error => console.log(error.message));
+  }
+
+
   //Store components in a form of objects
   const components = [
     { name: <Home />, path:'/home'},
     { name: <NewItemForm theId={theId} dbProducts={dbProducts} setDbProducts={setDbProducts} postProduct={postProduct}/>, path:'/newitemform'},
     { name: <IntroPage postUsers={postUsers} setUser={setUser} dbUser={dbUser}/>, path:'/intropage'},
-    { name: <EditUserForm/>, path:'/edituserform'},
+    { name: <EditUserForm users={users} setEditUser={setEditUser} editUserName={editUserName} editUser={editUser}/>, path:'/edituserform'},
     { name: <About/>,path:'/about'},
     { name: <Registry deleteProduct={deleteProduct} dbProducts={filteredProducts} theId={theId} setSearch={setSearch}/>,path:'/registry'}
    ]
