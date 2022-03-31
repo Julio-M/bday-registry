@@ -140,6 +140,20 @@ function App() {
     .catch( error => console.log(error.message));
   }
 
+//Sort items  
+  const sortItems = (value) => {
+    if(value==='lotohi'){
+    const sortedProductsLowToHigh = [...dbProducts].sort(function(a, b) {
+      return parseFloat(a.price) - parseFloat(b.price);
+  })
+  setDbProducts(sortedProductsLowToHigh)
+    }else{
+  const sortedProductsHighToLow = [...dbProducts].sort(function(a, b) {
+    return parseFloat(b.price) - parseFloat(a.price);
+  })
+  setDbProducts(sortedProductsHighToLow)
+  }
+}
 
   //Store components in a form of objects
   const components = [
@@ -148,7 +162,7 @@ function App() {
     { name: <IntroPage postUsers={postUsers} setUser={setUser} dbUser={dbUser}/>, path:'/intropage'},
     { name: <EditUserForm users={users} setEditUser={setEditUser} editUserName={editUserName} editUser={editUser}/>, path:'/edituserform'},
     { name: <About/>,path:'/about'},
-    { name: <Registry deleteProduct={deleteProduct} dbProducts={filteredProducts} theId={theId} setSearch={setSearch}/>,path:'/registry'}
+    { name: <Registry sortItems={sortItems} deleteProduct={deleteProduct} dbProducts={filteredProducts} theId={theId} setSearch={setSearch}/>,path:'/registry'}
    ]
    
   //Wrap all components inside Route

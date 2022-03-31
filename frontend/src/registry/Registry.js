@@ -3,22 +3,27 @@ import React, { useState } from "react";
 import './registry.css'
 
 
-function Registry ({dbProducts, theId, deleteProduct,setSearch}) {
+function Registry ({dbProducts, theId, deleteProduct,setSearch,sortItems}) {
 
     const handleOnChange = (e)=> {
         setSearch(search => search=e.target.value)
+    }
+
+    const handleOnSort = (e) => {
+        let value = e.target.value
+        sortItems(value)
     }
 
     return (
         <>  
             <div id="searchsortcontainer">
             <input className="searchbox" onChange={handleOnChange} type="text" placeholder="Search for item 🔍"></input>
-            <select className="sortbox"textholder="Sort By">
+            <select onChange={handleOnSort} className="sortbox"textholder="Sort By">
                 <option value="all" >Sort</option>
                 <option value="lotohi" >Price: Low to High</option>
                 <option value="hitolo" >Price: High to Low</option>
-                <option value="alphabetical" >Alphabetically</option>
-                <option value="lovescore">Average Love: ♡ </option>
+                {/* <option value="alphabetical" >Alphabetically</option>
+                <option value="lovescore">Average Love: ♡ </option> */}
             </select>
             </div>
             <RegistryList dbProducts={dbProducts} theId={theId} deleteProduct={deleteProduct}/>
