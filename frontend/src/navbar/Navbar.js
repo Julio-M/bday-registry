@@ -113,7 +113,7 @@ function Navbar ({user, setUser}) {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <p id='usernav'>{`hi, ${user}`}</p>
+                <p id='usernav'>{`Hi, ${user}!`}</p>
               </IconButton>
             </Tooltip>
             <Menu
@@ -157,7 +157,7 @@ function Navbar ({user, setUser}) {
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            LOGO
+            GIFTSTER
           </Typography>
           {user?whenLogedIn:logedOut}
         </Toolbar>

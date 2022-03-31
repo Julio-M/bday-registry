@@ -18,7 +18,7 @@ function Login ({postUsers,setUser, dbUser}) {
     const allUsersName = dbUser.map(user=> user.name)
     const userId = dbUser.map(user=>user.id)
 
-
+    console.log(isUser)
 
     const handleClick =()=>{
         setState(!state)
