@@ -36,6 +36,7 @@ function Login ({postUsers,setUser, dbUser}) {
         e.preventDefault()
         if(state && allUsersName.includes(isUser.name)){alert("user exists")}
         if(state){
+            navigate(`/home`)
             postUsers(isUser)
             setState(!state)
         }else if(allUsersName.includes(isUser.name)){

@@ -17,30 +17,13 @@ import './App.css'
 import { Container } from '@mui/material';
 
 
-const postUsers = (formData) => {
 
-  console.log(formData)
-  fetch(usersUrl, {
-      method: "POST",
-      headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json"
-      },
-      body: JSON.stringify(
-          formData
-      )
-  })
-  .then( res => res.json())
-  .then( data => console.log(data))
-  .catch( error => console.log(error.message));
- }
 
 
 const usersUrl = 'http://localhost:3000/users'
 const productsUrl = 'http://localhost:3000/products'
 
 function App() {
-
   const [user, setUser] = useState("")
 
   const [dbUser,setDbUser] = useState([])
@@ -50,6 +33,27 @@ function App() {
   const [search,setSearch] = useState("")
 
   const [editUser, setEditUser]= useState("")
+
+  //create new user
+  const postUsers = (formData) => {
+
+    console.log(formData)
+    fetch(usersUrl, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+        },
+        body: JSON.stringify(
+            formData
+        )
+    })
+    .then( res => res.json())
+    .then( data => setUser(data.name))
+
+    .catch( error => console.log(error.message));
+   }
+  
 
   //Fetch data from the database - used arguments to access both users and products with same function
   const getData = (set,url) => {
@@ -61,8 +65,6 @@ function App() {
 
   const users = dbUser.filter(data => data.name.includes(user))
   const theId = users.map(id=>id.id)
-
-  const [isLoged,setIsLoged] = useState(false)
 
   //When user is loged in change loged status to true
   const patchData = () => {
@@ -158,7 +160,7 @@ function App() {
 
   //Store components in a form of objects
   const components = [
-    { name: <Home />, path:'/home'},
+    { name: <Home />, path:"/home"},
     { name: <NewItemForm theId={theId} dbProducts={dbProducts} setDbProducts={setDbProducts} postProduct={postProduct}/>, path:'/newitemform'},
     { name: <IntroPage postUsers={postUsers} setUser={setUser} dbUser={dbUser}/>, path:'/intropage'},
     { name: <EditUserForm users={users} setEditUser={setEditUser} editUserName={editUserName} editUser={editUser}/>, path:'/edituserform'},
@@ -168,7 +170,7 @@ function App() {
    ]
    
   //Wrap all components inside Route
-  const displayComp = components.map(comp=> <Route key={comp.name} path={comp.path} element={comp.name} />)
+  const displayComp = components.map(comp=> <Route key={comp.name} exact path={comp.path} element={comp.name} />)
 
   //What to display when a user is loged in
   const displayLogedIn = (<>
