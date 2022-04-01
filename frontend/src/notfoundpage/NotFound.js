@@ -2,10 +2,11 @@ import React, { useState,useEffect } from "react";
 import './notfound.css'
 import Snake from "./Snake";
 import SnakeFood from "./SnakeFood";
+import 'animate.css';
 
 const randomCoordinates = () => {
     let min=1;
-    let max = 98;
+    let max = 94;
     let x = Math.floor((Math.random()*(max-min+1)+min)/2)*2
     let y = Math.floor((Math.random()*(max-min+1)+min)/2)*2
     return [x,y]
@@ -27,7 +28,7 @@ function NotFound (props) {
 
     const [gameOver,setGameOver]= useState(false)
 
-    const [score, setScore] = useState(0);
+    const [score, setScore] = useState(-1);
 
     const {snakeDots,speed,direction,snakeFood} = position
 
@@ -45,8 +46,7 @@ function NotFound (props) {
     useEffect( () => {
         setTimeout(() => {
             setGameOver(false)
-            setPosition(defaultState)
-        }, 300);
+        }, 3000);
     },[gameOver])
 
     useEffect( () => {
@@ -117,6 +117,7 @@ function NotFound (props) {
             snakeDots:strechSnake,
             speed:speed-10
         })
+        setScore(score=>score+=1)
     }
 
     const checkFood = () => {
@@ -139,16 +140,20 @@ function NotFound (props) {
 
     const loseGame = () => {
         setGameOver(!gameOver)
+        setPosition(defaultState)
+        setScore(-1)
     }
   
     return (
-        <>
-       <div className='game-area'>
+        <div className="page">
+        <h1 className='title animate__animated animate__pulse'>404 - No worries, chill and play</h1>
+        <p className="score">Score: {score===-1?"Loading":score}</p>
+       <div className='box'>
             <Snake position={position}/>
             <SnakeFood position={position}/>
-            {gameOver?<h1>Game Over</h1>:null}
+            {gameOver?<h1 id='gameover' className="animate__animated animate__rotateOut">Try Again</h1>:null}
        </div>
-       </>
+       </div>
     );
 }
 

@@ -143,8 +143,7 @@ function Navbar ({user, setUser}) {
   </>)
 
   const logedOut = (<>
-    <Button id="loginbtn">Log In</Button>
-    <Button id='signupbtn'>Sign Up</Button>
+    <Link to='/'><Button id="loginbtn">Log In</Button></Link>
   </>)
 
     return (
