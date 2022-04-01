@@ -58,7 +58,6 @@ function About (props) {
 
     return (
         <>
-            <h1>GetList</h1>
             <div id="wrapper">
             <div id="imagecontainer">
             <ImageList
@@ -81,7 +80,7 @@ function About (props) {
 
     <div id="textcontainer">
     <p className="aboutsection">
-                Shower yourself with the perfect gifts with Giftster! Curate a wish list for your special day to share with your friends and family. 
+                Shower yourself with the perfect gifts with the GetList! Curate a wish list for your special day to share with your friends and family. 
                 <br>
                 </br>
                 <br>

@@ -18,7 +18,7 @@ function RegistryList ({dbProducts,theId, deleteProduct}) {
 
     const testdisplay = diplayprod.map(prod=>prod)
 
-    console.log(testdisplay)
+    //console.log(testdisplay)
 
     return (
         <>
