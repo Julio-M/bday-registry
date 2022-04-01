@@ -8,6 +8,7 @@ import Footer from './footer/Footer'
 import EditUserForm from './edituser/EditUserForm'
 import About from './about/About'
 import Registry from './registry/Registry'
+import NotFound from "./notfoundpage/NotFound";
 import {
   Routes,
   Route,
@@ -162,7 +163,8 @@ function App() {
     { name: <IntroPage postUsers={postUsers} setUser={setUser} dbUser={dbUser}/>, path:'/intropage'},
     { name: <EditUserForm users={users} setEditUser={setEditUser} editUserName={editUserName} editUser={editUser}/>, path:'/edituserform'},
     { name: <About/>,path:'/about'},
-    { name: <Registry sortItems={sortItems} deleteProduct={deleteProduct} dbProducts={filteredProducts} theId={theId} setSearch={setSearch}/>,path:'/registry'}
+    { name: <Registry sortItems={sortItems} deleteProduct={deleteProduct} dbProducts={filteredProducts} theId={theId} setSearch={setSearch}/>,path:'/registry'},
+    { name: <NotFound/>,path:'*'},
    ]
    
   //Wrap all components inside Route
@@ -181,7 +183,10 @@ function App() {
   //What to display when NO user is loged in
   const displayNotLogedIn = (<>
     <Container maxWidth="xxl" className='allcomp'>
-    <IntroPage postUsers={postUsers} setUser={setUser} dbUser={dbUser}/>
+    <Routes>
+    <Route path='*' element={<NotFound />} />
+    <Route index element={<IntroPage postUsers={postUsers} setUser={setUser} dbUser={dbUser}/>}/>
+    </Routes>
     </Container>
     <Footer/>
   </>)
