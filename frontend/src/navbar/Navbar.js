@@ -157,7 +157,7 @@ function Navbar ({user, setUser}) {
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            GIFTSTER
+            GetList
           </Typography>
           {user?whenLogedIn:logedOut}
         </Toolbar>

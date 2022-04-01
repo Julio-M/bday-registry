@@ -22,8 +22,6 @@ function Registry ({dbProducts, theId, deleteProduct,setSearch,sortItems}) {
                 <option value="all" >Sort</option>
                 <option value="lotohi" >Price: Low to High</option>
                 <option value="hitolo" >Price: High to Low</option>
-                {/* <option value="alphabetical" >Alphabetically</option>
-                <option value="lovescore">Average Love: ♡ </option> */}
             </select>
             </div>
             <RegistryList dbProducts={dbProducts} theId={theId} deleteProduct={deleteProduct}/>

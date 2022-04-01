@@ -136,8 +136,8 @@ function App() {
           name:editUser
         })
     })
-    .then( res => res.json())
-    .catch( error => console.log(error.message));
+    .then (res => res.json())
+    .then (setUser(editUser));
   }
 
 //Sort items  

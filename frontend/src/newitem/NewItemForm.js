@@ -1,6 +1,7 @@
 import { Button } from "@mui/material";
 import React, { useState,useEffect } from "react";
 
+
 import './newitemform.css'
 
 
@@ -70,7 +71,7 @@ const handleSubmit = (e) => {
 
    return (
        <>
-            <form id='myForm' onSubmit={handleSubmit} className="form-style-7">
+        <form id='myForm' onSubmit={handleSubmit} className="form-style-7">
                 <ul>
                 <li>
                     <label htmlFor="name">Product's url</label>
@@ -99,7 +100,7 @@ const handleSubmit = (e) => {
         </form>
         <form id='scrapeform' className="form-style-7">
                 <ul>
-                <h6>Or paste the product's url here...</h6>
+                <h5>Or paste the product's URL here...</h5>
                 <li>
                     <label htmlFor="name">Product's url</label>
                     <input onChange={handleMock} type="text" name="mockscrape" value={mockValue}/>
@@ -107,7 +108,7 @@ const handleSubmit = (e) => {
                 </li>
                 </ul>       
         </form>
-</>
+        </>
     );
 }
 
