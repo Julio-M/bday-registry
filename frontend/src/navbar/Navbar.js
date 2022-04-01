@@ -47,6 +47,7 @@ function Navbar ({user, setUser}) {
 
     if(value==='Logout'){
       setUser(false)
+      navigate("/")
     } else {
       navigate(`/edituserform`)
     }
