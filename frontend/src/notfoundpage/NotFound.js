@@ -37,7 +37,7 @@ function NotFound (props) {
         checkBorders()
         checkFood()
         checkSnakeCollides()
-        const interval = setInterval(() => {
+       const interval =setInterval(() => {
            moveSnake()
           }, speed);
           return () => clearInterval(interval)

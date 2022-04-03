@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Button } from "@mui/material";
+import './edituserform.css'
 
-function EditUserForm ({ users, setEditUser, editUserName, editUser}) {
+function EditUserForm ({ users, setEditUser, editUserName, editUser,deleteUser}) {
 
     const handleChange = (e) => {
         setEditUser(e.target.value)
@@ -10,6 +11,10 @@ function EditUserForm ({ users, setEditUser, editUserName, editUser}) {
     const handleUserSubmit = (e) => {
         e.preventDefault()
         editUserName ()
+    }
+
+    const handleDelete =(e) => {
+        deleteUser()
     }
 
     return (
@@ -26,6 +31,7 @@ function EditUserForm ({ users, setEditUser, editUserName, editUser}) {
                 </li>
             </ul>
         </form>
+        <Button onClick={handleDelete} id='dltUser' type="submit" value="Send This">Delete User</Button>
         </>
     );
 }

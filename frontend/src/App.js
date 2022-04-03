@@ -15,6 +15,7 @@ import {
 } from "react-router-dom";
 import './App.css'
 import { Container } from '@mui/material';
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -24,6 +25,8 @@ const usersUrl = 'http://localhost:3000/users'
 const productsUrl = 'http://localhost:3000/products'
 
 function App() {
+  let navigate = useNavigate();
+
   const [user, setUser] = useState("")
 
   const [dbUser,setDbUser] = useState([])
@@ -117,7 +120,7 @@ function App() {
 
   //Delete product from the database
   const deleteProduct = (deleteItem) => {
-    fetch(`http://localhost:3000/products/${deleteItem.id}`, {
+    fetch(`${productsUrl}/${deleteItem.id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -125,6 +128,20 @@ function App() {
     })
     .then(response => response.json())
     .then(setDbProducts(dbProducts.filter(product => product.id !== deleteItem.id)))
+  }
+
+   //Delete user from the database
+   const deleteUser = (deleteItem) => {
+    fetch(`${usersUrl}/${theId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      }
+    })
+    .then(response => response.json())
+    .then(alert('user deleted'))
+    .then(setUser(''))
+    .then(navigate(`/`))
   }
 
   //Patch new user name
@@ -163,7 +180,7 @@ function App() {
     { name: <Home />, path:"/home"},
     { name: <NewItemForm theId={theId} dbProducts={dbProducts} setDbProducts={setDbProducts} postProduct={postProduct}/>, path:'/newitemform'},
     { name: <IntroPage postUsers={postUsers} setUser={setUser} dbUser={dbUser}/>, path:'/intropage'},
-    { name: <EditUserForm users={users} setEditUser={setEditUser} editUserName={editUserName} editUser={editUser}/>, path:'/edituserform'},
+    { name: <EditUserForm users={users} setEditUser={setEditUser} editUserName={editUserName} editUser={editUser} deleteUser={deleteUser}/>, path:'/edituserform'},
     { name: <About/>,path:'/about'},
     { name: <Registry sortItems={sortItems} deleteProduct={deleteProduct} dbProducts={filteredProducts} theId={theId} setSearch={setSearch}/>,path:'/registry'},
     { name: <NotFound/>,path:'*'},
