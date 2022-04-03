@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import './footer.css'
+import {FaGithub} from 'react-icons/fa';
 
 function Footer (props) {
   
     return (
         <div id="footer" className="container">
-                <>
-                <img className="githubIcon" src="https://logos-world.net/wp-content/uploads/2020/11/GitHub-Logo.png" alt='github logo'></img>
-                    <a className="githubLink" href="https://github.com/Julio-M">XHULIO</a>   | 
-                    <a className="githubLink" href="https://github.com/cadakris">   KRISTEN</a>
-                </>
+                <div className='content'>
+                    <FaGithub id='githublogo'/>
+                    <a className="githubLink" href="https://github.com/Julio-M" target="_blank" rel="noopener noreferrer">XHULIO</a>   | 
+                    <a className="githubLink" href="https://github.com/cadakris" target="_blank" rel="noopener noreferrer">   KRISTEN</a>
+                </div>
         </div>
     );
 }

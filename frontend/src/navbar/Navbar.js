@@ -91,14 +91,15 @@ function Navbar ({user, setUser}) {
               ))}
             </Menu>
           </Box>
-          <Typography
+          <Link className='droplinks' to='/'><Typography
+          className='logoTitle'
             variant="h6"
             noWrap
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
             GetList
-          </Typography>
+          </Typography></Link>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {linkpaths.map((link) => (
               <Link className='links' to={`${link.path}`}><Button
@@ -151,14 +152,15 @@ function Navbar ({user, setUser}) {
     <AppBar id='topbar' position="fixed">
     <Container maxWidth="xxl">
         <Toolbar disableGutters>
-          <Typography
+        <Link className='droplinks' to='/'><Typography
+          className='logoTitle'
             variant="h6"
             noWrap
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
             GetList
-          </Typography>
+          </Typography></Link>
           {user?whenLogedIn:logedOut}
         </Toolbar>
         </Container>
