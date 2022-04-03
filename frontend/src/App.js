@@ -52,8 +52,7 @@ function App() {
         )
     })
     .then( res => res.json())
-    .then( data => setUser(data.name))
-
+    .then(navigate('/'))
     .catch( error => console.log(error.message));
    }
   
