@@ -152,7 +152,7 @@ function Navbar ({user, setUser}) {
     <AppBar id='topbar' position="fixed">
     <Container maxWidth="xxl">
         <Toolbar disableGutters>
-        <Link className='droplinks' to='/'><Typography
+        <Link className='droplinks' to='/home'><Typography
           className='logoTitle'
             variant="h6"
             noWrap
