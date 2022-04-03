@@ -5,13 +5,15 @@
   background-color: #303c6c;
   color: rgb(255, 255, 255);
   text-align: center;
-  height: 3rem;
+  height: 5rem;
   position: fixed;
 }
 
 .githubLink {
   color: white;
   text-decoration: none;
+  font-size: 0.8rem;
+  text-align: center;
 }
 
 .githubLink:hover {
@@ -19,7 +21,6 @@
 }
 
 .githubIcon {
-  width: 9vh;
+  width: 6vh;
+  color: white;
 }
-
-

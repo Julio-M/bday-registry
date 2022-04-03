@@ -100,4 +100,7 @@
   border-radius: 3px;
   justify-content: center;
   align-items: center;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
