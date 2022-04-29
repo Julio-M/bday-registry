@@ -21,8 +21,8 @@ import { useNavigate } from "react-router-dom";
 
 
 
-const usersUrl = 'http://localhost:3000/users'
-const productsUrl = 'http://localhost:3000/products'
+const usersUrl = 'https://strawberry-pudding-85231.herokuapp.com/users'
+const productsUrl = 'https://strawberry-pudding-85231.herokuapp.com/products'
 
 function App() {
   let navigate = useNavigate();
